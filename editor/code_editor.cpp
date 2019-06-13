@@ -712,15 +712,7 @@ void CodeTextEditor::_complete_request() {
 	if (entries.size() == 0)
 		return;
 
-	Vector<String> options;
-	options.resize(entries.size());
-	size_t i = 0;
-	for (List<ScriptCodeCompletionOption>::Element *E = entries.front(); E; E = E->next()) {
-		options.write[i] = E->get().insert_text;
-		i++;
-	}
-
-	text_editor->code_complete(options, forced);
+	text_editor->code_complete(entries, forced);
 }
 
 void CodeTextEditor::_font_resize_timeout() {
